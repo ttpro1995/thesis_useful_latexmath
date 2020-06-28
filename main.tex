@@ -1,0 +1,134 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[portuges]{babel}
+\usepackage{fontspec}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath,amsthm,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\providecommand{\C}{\mathbb{C}}
+
+\theoremstyle{definition}
+\newtheorem{defin}{Definição}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[defin]{Teorema}
+\newtheorem{corollary}[defin]{Corolário}
+
+
+
+\title{Useful latex equation I need}
+
+\author{Thai Thien\\
+        Meow\\
+}
+
+\date{24/06/2020}
+
+\begin{document}
+\maketitle
+
+%\begin{abstract}
+%Your abstract.
+%\end{abstract}
+
+\section{Define count counting problem}
+
+\[ C(I_i) = \sum_{P \in P_{i}} P \]
+
+\[ C(I_i) = n \]
+
+
+\[ C(I_i) = \int_{p \in I_{i}} F_{i}(p) \]
+
+
+
+%%%%%%%%%%%%%%
+%%%%%%%%%%%%
+
+
+\section{Integral of 2D Gaussian}
+
+ref: https://www.youtube.com/watch?v=jNrxkMONL5A
+
+\[ \forall p \in I_{i}, \quad F_{i}^{0}(p)=\sum_{P \in \mathbf{P}_{i}} \mathcal{N}\left(p ; P, \sigma^{2} \mathbf{1}_{2 \times 2}\right) \]
+
+
+\[ \int_{-\infty}^{\infty}   F_{i}^{0}(p) dp = \int_{-\infty}^{\infty} \sum_{P \in \mathbf{P}_{i}} \mathcal{N}\left(p ; P, \sigma^{2} \mathbf{1}_{2 \times 2}\right) dp \]
+\[ \int_{-\infty}^{\infty}\mathcal{N}\left(p ; P, \sigma^{2} \mathbf{1}_{2 \times 2}\right) dp = 1 \]
+We have Gaussian function with mean = 0 and std.
+\[ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^\frac{-x^2}{2\sigma^2} \]
+
+
+In 2D
+
+\[ g(x, y) = f(x)f(y) = \frac{1}{2\pi\sigma^2} e^\frac{-(x^2+y^2)}{2\sigma^2} \]
+
+
+
+\[ Let A = \int_{x=-\infty}^{\infty}\int_{y=-\infty}^{\infty} g(x,y)dydx = \frac{1}{2\pi\sigma^2} \int_{x=-\infty}^{\infty}\int_{y=-\infty}^{\infty} e^\frac{-(x^2+y^2)}{2\sigma^2} dydx\]
+
+\[ Let B =  \int_{x=-\infty}^{x=\infty}\int_{y=-\infty}^{y=\infty} e^\frac{-(x^2+y^2)}{2\sigma^2} dydx\]
+
+If we want to prove A = 1, so we prove B = $2\pi\sigma^2$
+
+Convert to Polar coordinate 
+
+\[ r = \sqrt{x^2 + y^2} \]
+
+\[ B =  \int_{\theta=0}^{\theta=2\pi}\int_{r=0}^{y=\infty} e ^ \frac{-r^2}{2\sigma^2}rdrd\theta\]
+
+\[ B =  2\pi\sigma^2 [-e^\frac{-1r^2}{2\sigma^2}]_0^{\infty} \]
+
+\[ B =  2\pi\sigma^2 [0 - (-1)] \]
+
+\[ B =  2\pi\sigma^2  \]
+
+\section{Without inf}
+
+
+\[ \forall p \in I_{i}, \quad F_{i}^{0}(p)=\sum_{P \in \mathbf{P}_{i}} \mathcal{N}\left(p ; P, \sigma^{2} \mathbf{1}_{2 \times 2}\right) \]
+
+
+\[ \int   F_{i}^{0}(p) dp = \int \sum_{P \in \mathbf{P}_{i}} \mathcal{N}\left(p ; P, \sigma^{2} \mathbf{1}_{2 \times 2}\right) dp \]
+
+\[ \int\mathcal{N}\left(p ; P, \sigma^{2} \mathbf{1}_{2 \times 2}\right) dp = 1 \]
+
+
+We have Gaussian function with mean = 0 and std.
+\[ f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^\frac{-x^2}{2\sigma^2} \]
+
+
+In 2D
+
+\[ g(x, y) = f(x)f(y) = \frac{1}{2\pi\sigma^2} e^\frac{-(x^2+y^2)}{2\sigma^2} \]
+
+
+
+\[ Let A = \frac{1}{2\pi\sigma^2} \int\int e^\frac{-(x^2+y^2)}{2\sigma^2} dydx\]
+
+\[ Let B =  \int\int e^\frac{-(x^2+y^2)}{2\sigma^2} dydx\]
+
+If we want to prove A = 1, so we prove B = $2\pi\sigma^2$
+
+Convert to Polar coordinate
+
+\[ B =  \int_{\theta=0}^{2\pi}\int_{r=0}^{\infty} e ^ \frac{-r^2}{2\sigma^2}rdrd\theta\]
+
+\[ B =  2\pi\sigma^2 [-e^\frac{-1r^2}{2\sigma^2}]_0^{\infty} \]
+
+\[ B =  2\pi\sigma^2 [0 - (-1)] \]
+
+\[ B =  2\pi\sigma^2  \]
+
+\end{document}
