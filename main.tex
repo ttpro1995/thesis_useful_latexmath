@@ -1,7 +1,7 @@
 \documentclass[a4paper]{article}
 
 %% Language and font encodings
-\usepackage[portuges]{babel}
+% \usepackage[portuges]{babel}
 \usepackage{fontspec}
 
 %% Sets page size and margins
@@ -133,5 +133,30 @@ Convert to Polar coordinate
 \[ B =  2\pi\sigma^2 [0 - (-1)] \]
 
 \[ B =  2\pi\sigma^2  \]
+
+\section{Evaluation metric}
+
+\begin{equation}M A E=\frac{1}{N} \sum_{i=1}^{N}\left|C_{i}^{e t}-C_{i}^{g t}\right|\end{equation}
+
+\begin{equation}M S E=\sqrt{\frac{1}{N} \sum_{i=1}^{N}\left(C_{i}^{e t}-C_{i}^{g t}\right)^{2}}\end{equation}
+
+\subsection{Loss Function}
+
+\begin{equation}L(\Theta)=\frac{1}{2 N} \sum_{i=1}^{N}\left\|Z\left(X_{i} ; \Theta\right)-Z_{i}^{G T}\right\|_{2}^{2}\end{equation}
+
+\begin{equation}L_2(\Theta)=\frac{1}{N} \sum_{i=1}^{N}\left\|Z\left(X_{i} ; \Theta\right)-Z_{i}^{G T}\right\|^{2}\end{equation}
+
+\begin{equation}L_1(\Theta)=\frac{1}{N} \sum_{i=1}^{N}\left\|Z\left(X_{i} ; \Theta\right)-Z_{i}^{G T}\right\|\end{equation}
+
+\begin{equation}
+    L(\Theta) = \frac{1}{2}L_1(\Theta) + \frac{1}{2}L_2(\Theta)
+\end{equation}
+
+\section{Receptive field and dilated convolution}
+
+Idea from here \footnote{https://stats.stackexchange.com/questions/265462/whats-the-receptive-field-of-a-stack-of-dilated-convolutions?rq=1}, and Wavenet \cite{45774}.
+
+\bibliographystyle{IEEEtran}
+\bibliography{sample.bib}
 
 \end{document}
